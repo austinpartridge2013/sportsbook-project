@@ -1,16 +1,16 @@
 package com.thefightpredictor.sportsbook.core.web;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
 
-/**
- * Hello world!
- *
- */
+@Path("blah")
 public class App 
 {
 	@Path("blah")
-    public static void main( String[] args )
+	@GET
+    public Response getHelloWorld()
     {
-        System.out.println( "Hello World!" );
+        return Response.ok("Hello world").build();
     }
 }

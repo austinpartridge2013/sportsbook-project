@@ -49,5 +49,6 @@
         </configuration>
       </plugin>
     </plugins>
+    <finalName>sportsbook-core-web</finalName>
   </build>
 </project>
