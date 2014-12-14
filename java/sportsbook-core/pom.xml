@@ -23,6 +23,7 @@
 
   <modules>
     <module>sportsbook-core-web</module>
+    <module>sportsbook-core-ear</module>
   </modules>
 
 </project>

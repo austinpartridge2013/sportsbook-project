@@ -4,10 +4,20 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"> 
-  <changeSet author="austin" id="initial-setup-1">
+  <changeSet author="austin" id="login-account-1">
     <createTable tableName="login_account">
-      <column name="user_name" type="VARCHAR(25)">
-        <constraints primaryKey="true" unique="true"/>
+      <column name="user_id" type="INT">
+        <constraints primaryKey="true" unique="true" nullable="false"/>
+      </column>
+      <column name="email" type="TEXT">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="user_name" type="VARCHAR(50)">
+        <constraints unique="true" nullable="false"/>
+      </column>
+      <column name="encoded_password" type="TEXT"/>
+      <column name="account_balance_cents" type="INT" defaultValueNumeric="0">
+        <constraints nullable="false"/>
       </column>
     </createTable>
   </changeSet>
