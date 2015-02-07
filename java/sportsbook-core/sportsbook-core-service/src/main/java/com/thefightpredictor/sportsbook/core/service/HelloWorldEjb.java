@@ -4,9 +4,8 @@ import javax.ejb.Stateless;
 
 import com.thefightpredictor.sportsbook.core.service.interfaces.IHelloWorldEjb;
 
-
 @Stateless
-public class HellowWorldEjb implements IHelloWorldEjb
+public class HelloWorldEjb implements IHelloWorldEjb
 {
     public String getHelloWorld()
     {
