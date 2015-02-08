@@ -10,7 +10,7 @@ import com.thefightpredictor.sportsbook.core.service.interfaces.IHelloWorldEjb;
 @Stateless
 public class HelloWorldEjb implements IHelloWorldEjb
 {
-    @PersistenceContext(unitName = "sportsbook-persistence")
+    @PersistenceContext
     private EntityManager em;
 
     public String getHelloWorld()
