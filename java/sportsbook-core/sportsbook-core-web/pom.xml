@@ -42,8 +42,15 @@
     </dependency>
     <dependency>
       <groupId>com.thefightpredictor.sportsbook</groupId>
+      <artifactId>sportsbook-core-data</artifactId>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.thefightpredictor.sportsbook</groupId>
       <artifactId>sportsbook-core-service</artifactId>
       <type>ejb</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 

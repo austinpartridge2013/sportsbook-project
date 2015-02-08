@@ -13,7 +13,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>ejb</packaging>
 
-  <name>sportsbook-core-web</name>
+  <name>sportsbook-core-service</name>
   <url>http://maven.apache.org</url>
 
   <properties>
