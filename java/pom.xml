@@ -50,6 +50,12 @@
         <scope>import</scope>
       </dependency>
 
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>4.3.8.Final</version>
+      </dependency>
+
       <!-- sportsbook-core -->
       <dependency>
         <groupId>com.thefightpredictor.sportsbook</groupId>
@@ -62,6 +68,12 @@
         <artifactId>sportsbook-core-service</artifactId>
         <version>${project.version}</version>
         <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>com.thefightpredictor.sportsbook</groupId>
+        <artifactId>sportsbook-core-data</artifactId>
+        <version>${project.version}</version>
+        <type>jar</type>
       </dependency>
     </dependencies>
   </dependencyManagement>

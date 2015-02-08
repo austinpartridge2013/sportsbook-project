@@ -44,7 +44,7 @@
       <groupId>com.thefightpredictor.sportsbook</groupId>
       <artifactId>sportsbook-core-service</artifactId>
       <type>ejb</type>
-     </dependency>
+    </dependency>
   </dependencies>
 
 

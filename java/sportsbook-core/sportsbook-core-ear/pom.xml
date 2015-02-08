@@ -20,6 +20,14 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>com.thefightpredictor.sportsbook</groupId>
+      <artifactId>sportsbook-core-data</artifactId>
+      <scope>compile</scope>
+      <type>jar</type>
+    </dependency>
+
     <dependency>
       <groupId>com.thefightpredictor.sportsbook</groupId>
       <artifactId>sportsbook-core-service</artifactId>

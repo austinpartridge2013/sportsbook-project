@@ -25,6 +25,7 @@
     <module>sportsbook-core-service</module>
     <module>sportsbook-core-web</module>
     <module>sportsbook-core-ear</module>
+    <module>sportsbook-core-data</module>
   </modules>
 
 </project>
