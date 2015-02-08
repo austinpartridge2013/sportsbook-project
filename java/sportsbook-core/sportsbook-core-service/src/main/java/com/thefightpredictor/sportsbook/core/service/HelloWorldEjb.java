@@ -1,6 +1,9 @@
 package com.thefightpredictor.sportsbook.core.service;
 
 import javax.ejb.Stateless;
+
+import javax.inject.Inject;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 

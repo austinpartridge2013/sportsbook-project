@@ -5,8 +5,8 @@
   <persistence-unit name="sportsbook-persistence">
     <jta-data-source>java:jboss/postgresDB</jta-data-source>
     <properties>
-      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+      <property name="hibernate.show_sql" value="false" />
     </properties>
   </persistence-unit>
 </persistence>
