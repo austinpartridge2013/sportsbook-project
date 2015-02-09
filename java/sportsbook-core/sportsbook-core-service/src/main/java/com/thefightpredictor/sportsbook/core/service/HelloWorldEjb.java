@@ -18,6 +18,6 @@ public class HelloWorldEjb implements IHelloWorldEjb
     public String getHelloWorld()
     {
         final List<UserLogin> theUserLogin = em.createQuery("SELECT u FROM UserLogin u", UserLogin.class).getResultList();
-        return "Hello " + theUserLogin.get(0).getUserId();
+        return "Hello " + (theUserLogin.size() == 0 ? "noone" : theUserLogin.get(0).getUserId());
     }
 }
