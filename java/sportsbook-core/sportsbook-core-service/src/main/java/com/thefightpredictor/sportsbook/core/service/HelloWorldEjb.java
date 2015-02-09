@@ -1,9 +1,8 @@
 package com.thefightpredictor.sportsbook.core.service;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
-
-import javax.inject.Inject;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -18,7 +17,7 @@ public class HelloWorldEjb implements IHelloWorldEjb
 
     public String getHelloWorld()
     {
-        final UserLogin theUserLogin = em.find(UserLogin.class, 100);
-        return "Hello " + theUserLogin.getUserId();
+        final List<UserLogin> theUserLogin = em.createQuery("SELECT u FROM UserLogin u", UserLogin.class).getResultList();
+        return "Hello " + theUserLogin.get(0).getUserId();
     }
 }
