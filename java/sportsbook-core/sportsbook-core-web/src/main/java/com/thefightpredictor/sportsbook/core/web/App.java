@@ -17,7 +17,7 @@ public class App
     @GET
     public Response getHelloWorld()
     {
-        final String helloWorld = helloWorldEjb.getHelloWorld();
+        final String helloWorld = helloWorldEjb == null ? "Empty" : helloWorldEjb.getHelloWorld();
         return Response.ok(helloWorld).build();
     }
 }
