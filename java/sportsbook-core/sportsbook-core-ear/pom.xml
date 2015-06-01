@@ -20,7 +20,6 @@
   </properties>
 
   <dependencies>
-
     <dependency>
       <groupId>com.thefightpredictor.sportsbook</groupId>
       <artifactId>sportsbook-core-data</artifactId>

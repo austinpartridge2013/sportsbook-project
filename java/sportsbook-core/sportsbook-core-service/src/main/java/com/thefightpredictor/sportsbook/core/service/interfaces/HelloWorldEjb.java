@@ -1,5 +1,5 @@
 package com.thefightpredictor.sportsbook.core.service.interfaces;
 
-public interface IHelloWorldEjb {
+public interface HelloWorldEjb {
 	String getHelloWorld();
 }

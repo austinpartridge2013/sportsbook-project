@@ -7,10 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.thefightpredictor.sportsbook.core.data.UserLogin;
-import com.thefightpredictor.sportsbook.core.service.interfaces.IHelloWorldEjb;
+import com.thefightpredictor.sportsbook.core.service.interfaces.HelloWorldEjb;
 
 @Stateless
-public class HelloWorldEjb implements IHelloWorldEjb
+public class HelloWorldEjbImpl implements HelloWorldEjb
 {
     @PersistenceContext
     private EntityManager em;
