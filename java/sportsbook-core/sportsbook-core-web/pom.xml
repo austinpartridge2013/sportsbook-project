@@ -41,6 +41,12 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-multipart-provider</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
       <groupId>com.thefightpredictor.sportsbook</groupId>
       <artifactId>sportsbook-core-data</artifactId>
       <type>jar</type>

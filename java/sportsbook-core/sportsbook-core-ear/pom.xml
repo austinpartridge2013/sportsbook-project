@@ -21,6 +21,12 @@
 
   <dependencies>
     <dependency>
+	  <groupId>commons-io</groupId>
+	  <artifactId>commons-io</artifactId>
+	  <scope>compile</scope>
+    </dependency>
+  
+    <dependency>
       <groupId>com.thefightpredictor.sportsbook</groupId>
       <artifactId>sportsbook-core-data</artifactId>
       <scope>compile</scope>
