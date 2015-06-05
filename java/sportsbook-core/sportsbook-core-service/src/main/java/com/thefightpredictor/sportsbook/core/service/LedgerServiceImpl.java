@@ -21,7 +21,7 @@ public class LedgerServiceImpl implements LedgerService
     {
         final String fileName = ledgerInput.getFileName() == null ? "Unknown" : ledgerInput.getFileName() ;
 
-        final String completeFilePath = "c:/temp/" + fileName;
+        final String completeFilePath = "/tmp/" + fileName;
 
         try
         {
