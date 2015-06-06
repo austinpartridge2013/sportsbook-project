@@ -55,6 +55,6 @@ public class LedgerServiceImpl implements LedgerService
     }
 
     public List<LedgerEntry> getTransactions() {
-        return em.createQuery("SELECT l FROM LedgerEntry", LedgerEntry.class).getResultList();
+        return em.createQuery("SELECT l FROM LedgerEntry l", LedgerEntry.class).getResultList();
     }
 }
