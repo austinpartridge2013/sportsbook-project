@@ -40,4 +40,12 @@ public class LedgerResource
         return Response.ok().build();
     }
 
+    @GET
+    @Path("/transactions")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getTransactions() {
+        return Response.ok(ledgerService.getTransactions()).build();
+
+    }
+
 }

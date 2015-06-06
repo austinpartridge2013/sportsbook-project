@@ -8,6 +8,15 @@
             <p>
 	        Choose the file : <input type="file" name="selectedFile" />
 	    </p>
+	                <p>
+                Transaction Amount : <input type="text" name="transactionAmount" />
+            </p>
+            	                <p>
+                Transaction Category : <input type="text" name="transactionCategory" />
+            </p>
+                        	                <p>
+                Transaction Description : <input type="text" name="transactionDescription" />
+            </p>
 	    <input type="submit" value="Upload" />
 	</form>
 	http://www.howtodoinjava.com
