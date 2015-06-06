@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +13,8 @@ import javax.persistence.Table;
 public class LedgerEntry {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ledger_entry_id_seq")
+    @SequenceGenerator(name="ledger_entry_id_seq", sequenceName="ledger_entry_id_seq", allocationSize=1)
     @Column(name = "ledger_entry_id")
     private int ledgerEntryId;
 
