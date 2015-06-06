@@ -19,4 +19,9 @@
       <column name="receipt_file" type="VARCHAR(100)"/>
     </createTable>
   </changeSet>
+  <changeSet author="austin" id="easybooks-1">
+      <createSequence catalogName="ledger_entry_id_seq"
+                  incrementBy="1"
+                  startValue="10000"/>
+  </changeSet>
 </databaseChangeLog>
