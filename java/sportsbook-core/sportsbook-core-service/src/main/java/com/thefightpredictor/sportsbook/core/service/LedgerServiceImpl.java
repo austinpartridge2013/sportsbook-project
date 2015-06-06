@@ -52,6 +52,7 @@ public class LedgerServiceImpl implements LedgerService
         ledgerEntry.setTransactionAmount(ledgerInput.getTransactionAmount());
         ledgerEntry.setTransactionCategory(ledgerInput.getTransactionCategory());
         ledgerEntry.setTransactionDescription(ledgerInput.getTransactionDescription());
+        em.persist(ledgerEntry);
     }
 
     public List<LedgerEntry> getTransactions() {

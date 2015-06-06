@@ -22,7 +22,7 @@ public class LedgerEntry {
     @Column(name = "transaction_description")
     private String transactionDescription;
 
-    @Column(name = "receipt_filename")
+    @Column(name = "receipt_file")
     private String receiptFile;
 
     public int getLedgerEntryId() {
