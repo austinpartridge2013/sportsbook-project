@@ -47,8 +47,7 @@ public class LedgerServiceImpl implements LedgerService
         }
 
         final LedgerEntry ledgerEntry = new LedgerEntry();
-        ledgerEntry.setLedgerEntryId(1);
-        ledgerEntry.setReceiptFile(completeFilePath);
+        ledgerEntry.setReceiptFile(ledgerInput.getFileName());
         ledgerEntry.setTransactionAmount(ledgerInput.getTransactionAmount());
         ledgerEntry.setTransactionCategory(ledgerInput.getTransactionCategory());
         ledgerEntry.setTransactionDescription(ledgerInput.getTransactionDescription());
