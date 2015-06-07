@@ -1,6 +1,6 @@
 package com.thefightpredictor.sportsbook.core.data;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +33,7 @@ public class LedgerEntry {
     private String receiptFile;
 
     @Column(name = "transaction_date")
-    private LocalDateTime transactionDate;
+    private Date transactionDate;
 
     public int getLedgerEntryId() {
         return ledgerEntryId;
@@ -75,11 +75,11 @@ public class LedgerEntry {
         this.receiptFile = receiptFile;
     }
 
-    public LocalDateTime getTransactionDate() {
+    public Date getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(final LocalDateTime transactionDate) {
+    public void setTransactionDate(final Date transactionDate) {
         this.transactionDate = transactionDate;
     }
 }
