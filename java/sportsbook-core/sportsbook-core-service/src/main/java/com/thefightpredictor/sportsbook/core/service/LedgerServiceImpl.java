@@ -51,10 +51,11 @@ public class LedgerServiceImpl implements LedgerService
         ledgerEntry.setTransactionAmount(ledgerInput.getTransactionAmount());
         ledgerEntry.setTransactionCategory(ledgerInput.getTransactionCategory());
         ledgerEntry.setTransactionDescription(ledgerInput.getTransactionDescription());
+        ledgerEntry.setTransactionDate(ledgerInput.getTransactionDate());
         em.persist(ledgerEntry);
     }
 
     public List<LedgerEntry> getTransactions() {
-        return em.createQuery("SELECT l FROM LedgerEntry l", LedgerEntry.class).getResultList();
+        return em.createQuery("SELECT l FROM LedgerEntry l ORDER BY l.transactionDate", LedgerEntry.class).getResultList();
     }
 }

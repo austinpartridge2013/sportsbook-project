@@ -17,6 +17,9 @@
                         	                <p>
                 Transaction Description : <input type="text" name="transactionDescription" />
             </p>
+                        	                <p>
+                Transaction Date : <input type="text" name="transactionDate" />
+            </p>
 	    <input type="submit" value="Upload" />
 	</form>
 	http://www.howtodoinjava.com

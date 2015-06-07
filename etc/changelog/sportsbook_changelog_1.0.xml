@@ -10,13 +10,16 @@
         <constraints primaryKey="true" unique="true" nullable="false"/>
       </column>
       <column name="transaction_amount" type="INT">
-        <constraints nullable="false" unique="true"/>
+        <constraints nullable="false"/>
       </column>
       <column name="transaction_category" type="VARCHAR(50)">
         <constraints nullable="false"/>
       </column>
       <column name="transaction_description" type="TEXT"/>
       <column name="receipt_file" type="VARCHAR(100)"/>
+      <column name="transaction_date" type="DATETIME">
+          <constraints nullable="false"/>
+      </column>
     </createTable>
   </changeSet>
   <changeSet author="austin" id="easybooks-2">
