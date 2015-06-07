@@ -1,14 +1,17 @@
 package com.thefightpredictor.sportsbook.core.data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.thefightpredictor.sportsbook.core.data.converter.LocalDateTimePersistenceConverter;
 
 @Entity
 @Table(name = "ledger_entry")
@@ -33,7 +36,8 @@ public class LedgerEntry {
     private String receiptFile;
 
     @Column(name = "transaction_date")
-    private Date transactionDate;
+    @Convert(converter = LocalDateTimePersistenceConverter.class)
+    private LocalDateTime transactionDate;
 
     public int getLedgerEntryId() {
         return ledgerEntryId;
@@ -75,11 +79,11 @@ public class LedgerEntry {
         this.receiptFile = receiptFile;
     }
 
-    public Date getTransactionDate() {
+    public LocalDateTime getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(final Date transactionDate) {
+    public void setTransactionDate(final LocalDateTime transactionDate) {
         this.transactionDate = transactionDate;
     }
 }
