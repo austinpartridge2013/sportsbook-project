@@ -1,7 +1,5 @@
 package com.thefightpredictor.sportsbook.core.data.transferobject;
 
-import java.time.LocalDateTime;
-
 import javax.ws.rs.FormParam;
 import javax.ws.rs.core.MediaType;
 
@@ -13,7 +11,7 @@ public class LedgerEntryInput {
     private int transactionAmount;
     private String transactionCategory;
     private String transactionDescription;
-    private LocalDateTime transactionDate;
+    private long transactionDate;
 
     public String getFileName() {
         return fileName;
@@ -61,12 +59,12 @@ public class LedgerEntryInput {
         this.transactionDescription = transactionDescription;
     }
 
-    public LocalDateTime getTransactionDate() {
+    public long getTransactionDate() {
         return transactionDate;
     }
 
     @FormParam("transactionDate")
-    public void setTransactionDescription(final LocalDateTime transactionDate) {
+    public void setTransactionDescription(final long transactionDate) {
         this.transactionDate = transactionDate;
     }
 }

@@ -3,6 +3,9 @@ package com.thefightpredictor.sportsbook.core.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -51,7 +54,7 @@ public class LedgerServiceImpl implements LedgerService
         ledgerEntry.setTransactionAmount(ledgerInput.getTransactionAmount());
         ledgerEntry.setTransactionCategory(ledgerInput.getTransactionCategory());
         ledgerEntry.setTransactionDescription(ledgerInput.getTransactionDescription());
-        ledgerEntry.setTransactionDate(ledgerInput.getTransactionDate());
+        ledgerEntry.setTransactionDate(LocalDateTime.ofInstant(Instant.ofEpochMilli(ledgerInput.getTransactionDate()), ZoneId.systemDefault()));
         em.persist(ledgerEntry);
     }
 
