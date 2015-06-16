@@ -41,6 +41,12 @@
     </dependency>
     <dependency>
       <groupId>ca.easybooks</groupId>
+      <artifactId>easybooks-trivial-fileops</artifactId>
+      <scope>compile</scope>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>ca.easybooks</groupId>
       <artifactId>easybooks-core-web</artifactId>
       <scope>compile</scope>
       <type>war</type>

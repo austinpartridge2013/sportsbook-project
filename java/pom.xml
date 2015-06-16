@@ -69,6 +69,12 @@
       </dependency>
       <dependency>
         <groupId>ca.easybooks</groupId>
+        <artifactId>easybooks-trivial-fileops</artifactId>
+        <version>${project.version}</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>ca.easybooks</groupId>
         <artifactId>easybooks-core-service</artifactId>
         <version>${project.version}</version>
         <type>ejb</type>
