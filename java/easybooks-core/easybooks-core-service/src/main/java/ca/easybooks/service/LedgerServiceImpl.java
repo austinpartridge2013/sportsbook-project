@@ -3,14 +3,13 @@ package ca.easybooks.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import ca.easybooks.data.LedgerEntry;
+import ca.easybooks.data.entity.LedgerEntry;
 import ca.easybooks.data.transferobject.LedgerEntryInput;
 import ca.easybooks.service.interfaces.LedgerService;
 
@@ -52,7 +51,7 @@ public class LedgerServiceImpl implements LedgerService
         ledgerEntry.setTransactionAmount(ledgerInput.getTransactionAmount());
         ledgerEntry.setTransactionCategory(ledgerInput.getTransactionCategory());
         ledgerEntry.setTransactionDescription(ledgerInput.getTransactionDescription());
-        ledgerEntry.setTransactionDate(new Timestamp(ledgerInput.getTransactionDate()).toLocalDateTime());
+        ledgerEntry.setTransactionEpoch(ledgerInput.getTransactionDate());
         em.persist(ledgerEntry);
     }
 

@@ -1,17 +1,16 @@
-package ca.easybooks.data;
+package ca.easybooks.data.entity;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import ca.easybooks.data.converter.LocalDateTimePersistenceConverter;
 
 @Entity
 @Table(name = "ledger_entry")
@@ -35,9 +34,8 @@ public class LedgerEntry {
     @Column(name = "receipt_file")
     private String receiptFile;
 
-    @Column(name = "transaction_date")
-    @Convert(converter = LocalDateTimePersistenceConverter.class)
-    private LocalDateTime transactionDate;
+    @Column(name = "transaction_epoch")
+    private long transactionEpoch;
 
     public int getLedgerEntryId() {
         return ledgerEntryId;
@@ -79,11 +77,15 @@ public class LedgerEntry {
         this.receiptFile = receiptFile;
     }
 
-    public LocalDateTime getTransactionDate() {
-        return transactionDate;
+    public long getTransactionEpoch() {
+        return transactionEpoch;
     }
 
-    public void setTransactionDate(final LocalDateTime transactionDate) {
-        this.transactionDate = transactionDate;
+    public void setTransactionEpoch(final long transactionEpoch) {
+        this.transactionEpoch = transactionEpoch;
+    }
+
+    public LocalDateTime getTransactionDateTime(final ZoneId timeZone) {
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(transactionEpoch), timeZone);
     }
 }
