@@ -17,7 +17,7 @@
       </column>
       <column name="transaction_description" type="TEXT"/>
       <column name="receipt_file" type="VARCHAR(100)"/>
-      <column name="transaction_epoch" type="LONG">
+      <column name="transaction_epoch" type="BIGINT">
           <constraints nullable="false"/>
       </column>
     </createTable>

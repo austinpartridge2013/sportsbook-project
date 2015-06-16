@@ -24,6 +24,7 @@
   <modules>
     <module>easybooks-core-data</module>
     <module>easybooks-core-service</module>
+    <module>easybooks-trivial-fileops</module>
     <module>easybooks-core-web</module>
     <module>easybooks-core-ear</module>
   </modules>
