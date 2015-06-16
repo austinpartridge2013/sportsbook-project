@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.thefightpredictor.sportsbook</groupId>
-  <artifactId>sportsbook-project</artifactId>
+  <groupId>ca.easybooks</groupId>
+  <artifactId>easybooks-project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>sportsbook-project</name>
+  <name>easybooks-project</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -60,22 +60,22 @@
 	    <version>2.4</version>
      </dependency>
 
-      <!-- sportsbook-core -->
+      <!-- easybooks-core -->
       <dependency>
-        <groupId>com.thefightpredictor.sportsbook</groupId>
-        <artifactId>sportsbook-core-web</artifactId>
+        <groupId>ca.easybooks</groupId>
+        <artifactId>easybooks-core-web</artifactId>
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
       <dependency>
-        <groupId>com.thefightpredictor.sportsbook</groupId>
-        <artifactId>sportsbook-core-service</artifactId>
+        <groupId>ca.easybooks</groupId>
+        <artifactId>easybooks-core-service</artifactId>
         <version>${project.version}</version>
         <type>ejb</type>
       </dependency>
       <dependency>
-        <groupId>com.thefightpredictor.sportsbook</groupId>
-        <artifactId>sportsbook-core-data</artifactId>
+        <groupId>ca.easybooks</groupId>
+        <artifactId>easybooks-core-data</artifactId>
         <version>${project.version}</version>
         <type>jar</type>
       </dependency>
