@@ -12,7 +12,7 @@ import ca.easybooks.service.interfaces.FileOperations;
 
 @Stateless
 public class TrivialFileOperations implements FileOperations {
-    private static final String DEFAULT_FILE_PATH = "/tmp";
+    private static final String DEFAULT_FILE_PATH = "/tmp/";
 
     public void saveFile(final LedgerEntryInput ledgerInput) {
         final String fileName =
