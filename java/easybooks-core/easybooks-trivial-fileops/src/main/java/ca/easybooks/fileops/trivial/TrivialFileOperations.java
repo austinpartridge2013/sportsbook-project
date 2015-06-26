@@ -16,17 +16,11 @@ import ca.easybooks.service.interfaces.FileOperations;
 public class TrivialFileOperations implements FileOperations {
     private static final Logger log = Logger.getLogger(TrivialFileOperations.class);
 
-    private static final String DEFAULT_FILE_PATH = "files/tmp/";
+    private static final String DEFAULT_FILE_PATH = "tmp";
 
     public void saveFile(final LedgerEntryInput ledgerInput) {
-        final String fileName =
-                DEFAULT_FILE_PATH +
-                ledgerInput.getFileName() == null ? "Unknown" : ledgerInput.getFileName();
-
-        log.debug("Writing local file to " + fileName);
-
         try {
-            Files.write(Paths.get(fileName), ledgerInput.getFileData());
+            Files.write(Paths.get(DEFAULT_FILE_PATH, ledgerInput.getFileName()), ledgerInput.getFileData());
         } catch (final IOException e) {
             log.error("Error storing file", e);
             throw new RuntimeException("Unable to store file", e);
