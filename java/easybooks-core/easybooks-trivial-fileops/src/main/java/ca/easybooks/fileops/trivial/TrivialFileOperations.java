@@ -26,7 +26,9 @@ public class TrivialFileOperations implements FileOperations {
         log.debug("Writing local file to " + fileName);
 
         try {
-            Files.write(ledgerInput.getFileData(), new File(fileName));
+            final File receiptFile = new File(fileName);
+            receiptFile.createNewFile();
+            Files.write(ledgerInput.getFileData(), receiptFile);
         } catch (final IOException e) {
             log.error("Error storing file", e);
             throw new RuntimeException("Unable to store file", e);
