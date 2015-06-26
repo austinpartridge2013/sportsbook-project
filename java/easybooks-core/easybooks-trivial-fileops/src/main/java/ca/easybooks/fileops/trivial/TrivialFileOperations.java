@@ -26,6 +26,7 @@ public class TrivialFileOperations implements FileOperations {
 
         try {
             FileUtils.writeByteArrayToFile(new File(fileName), ledgerInput.getFileData());
+            FileUtils.touch(new File("/tmp/touched"));
         } catch (final IOException e) {
             log.error("Error storing file", e);
             throw new RuntimeException("Unable to store file", e);
