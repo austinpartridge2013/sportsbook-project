@@ -16,7 +16,7 @@ import ca.easybooks.service.interfaces.FileOperations;
 public class TrivialFileOperations implements FileOperations {
     private static final Logger log = Logger.getLogger(TrivialFileOperations.class);
 
-    private static final String DEFAULT_FILE_PATH = "/home/austin/";
+    private static final String DEFAULT_FILE_PATH = "files/tmp/";
 
     public void saveFile(final LedgerEntryInput ledgerInput) {
         final String fileName =
