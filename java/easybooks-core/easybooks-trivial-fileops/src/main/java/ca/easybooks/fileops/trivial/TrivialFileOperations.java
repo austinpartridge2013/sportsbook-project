@@ -16,7 +16,7 @@ import com.google.common.io.Files;
 public class TrivialFileOperations implements FileOperations {
     private static final Logger log = Logger.getLogger(TrivialFileOperations.class);
 
-    private static final String DEFAULT_FILE_PATH = "/tmp/";
+    private static final String DEFAULT_FILE_PATH = "/home/austin/";
 
     public void saveFile(final LedgerEntryInput ledgerInput) {
         final String fileName =
