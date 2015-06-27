@@ -5,13 +5,17 @@ import javax.ws.rs.core.MediaType;
 
 import org.jboss.resteasy.annotations.providers.multipart.PartType;
 
+import ca.easybooks.data.enums.TransactionCategory;
+
 public class LedgerEntryInput {
     private String fileName;
     private byte[] fileData;
     private int transactionAmount;
-    private String transactionCategory;
+    private TransactionCategory transactionCategory;
     private String transactionDescription;
-    private long transactionDate;
+    private int transactionYear;
+    private int transactionMonth;
+    private int transactionDay;
 
     public String getFileName() {
         return fileName;
@@ -41,12 +45,12 @@ public class LedgerEntryInput {
         this.transactionAmount = transactionAmount;
     }
 
-    public String getTransactionCategory() {
+    public TransactionCategory getTransactionCategory() {
         return transactionCategory;
     }
 
     @FormParam("transactionCategory")
-    public void setTransactionCategory(final String transactionCategory) {
+    public void setTransactionCategory(final TransactionCategory transactionCategory) {
         this.transactionCategory = transactionCategory;
     }
 
@@ -59,12 +63,30 @@ public class LedgerEntryInput {
         this.transactionDescription = transactionDescription;
     }
 
-    public long getTransactionDate() {
-        return transactionDate;
+    public int getTransactionYear() {
+        return transactionYear;
     }
 
-    @FormParam("transactionDate")
-    public void setTransactionDescription(final long transactionDate) {
-        this.transactionDate = transactionDate;
+    @FormParam("transactionYear")
+    public void setTransactionYear(final int transactionYear) {
+        this.transactionYear = transactionYear;
+    }
+
+    public int getTransactionMonth() {
+        return transactionMonth;
+    }
+
+    @FormParam("transactionMonth")
+    public void setTransactionMonth(final int transactionMonth) {
+        this.transactionMonth = transactionMonth;
+    }
+
+    public int getTransactionDay() {
+        return transactionDay;
+    }
+
+    @FormParam("transactionDay")
+    public void setTransactionDay(final int transactionDay) {
+        this.transactionDay = transactionDay;
     }
 }

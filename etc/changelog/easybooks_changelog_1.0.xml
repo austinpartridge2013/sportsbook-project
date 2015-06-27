@@ -17,7 +17,13 @@
       </column>
       <column name="transaction_description" type="TEXT"/>
       <column name="receipt_file" type="VARCHAR(100)"/>
-      <column name="transaction_epoch" type="BIGINT">
+      <column name="transaction_year" type="INTEGER">
+          <constraints nullable="false"/>
+      </column>
+      <column name="transaction_month" type="INTEGER">
+          <constraints nullable="false"/>
+      </column>
+      <column name="transaction_day" type="INTEGER">
           <constraints nullable="false"/>
       </column>
     </createTable>

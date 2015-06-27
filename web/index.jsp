@@ -1,6 +1,6 @@
 <html>
     <body>
-        <h1>JAX-RS File Upload Example</h1>
+        <h1>Easybooks!</h1>
 	<form action="http://192.168.1.147:8080/easybooks-core-web/register/upload-file" method="post" enctype="multipart/form-data">
             <p>
                 File name : <input id="fileName" type="text" name="fileName" />
@@ -18,10 +18,15 @@
                 Transaction Description : <input type="text" name="transactionDescription" />
             </p>
                         	                <p>
-                Transaction Date : <input type="text" name="transactionDate" />
+                Transaction Year : <input type="text" name="transactionYear" />
+            </p>
+                                    	                <p>
+                Transaction Month : <input type="text" name="transactionMonth" />
+            </p>
+                                    	                <p>
+                Transaction Day : <input type="text" name="transactionDay" />
             </p>
 	    <input type="submit" value="Upload" />
 	</form>
-	http://www.howtodoinjava.com
     </body>
 </html>

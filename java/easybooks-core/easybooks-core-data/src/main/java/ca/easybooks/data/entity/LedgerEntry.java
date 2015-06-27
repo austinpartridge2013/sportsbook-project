@@ -1,16 +1,16 @@
 package ca.easybooks.data.entity;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import ca.easybooks.data.enums.TransactionCategory;
 
 @Entity
 @Table(name = "ledger_entry")
@@ -26,7 +26,8 @@ public class LedgerEntry {
     private int transactionAmount;
 
     @Column(name = "transaction_category")
-    private String transactionCategory;
+    @Enumerated(EnumType.STRING)
+    private TransactionCategory transactionCategory;
 
     @Column(name = "transaction_description")
     private String transactionDescription;
@@ -34,8 +35,14 @@ public class LedgerEntry {
     @Column(name = "receipt_file")
     private String receiptFile;
 
-    @Column(name = "transaction_epoch")
-    private long transactionEpoch;
+    @Column(name = "transaction_year")
+    private int transactionYear;
+
+    @Column(name = "transaction_month")
+    private int transactionMonth;
+
+    @Column(name = "transaction_day")
+    private int transactionDay;
 
     public int getLedgerEntryId() {
         return ledgerEntryId;
@@ -53,11 +60,11 @@ public class LedgerEntry {
         this.transactionAmount = transactionAmount;
     }
 
-    public String getTransactionCategory() {
+    public TransactionCategory getTransactionCategory() {
         return transactionCategory;
     }
 
-    public void setTransactionCategory(final String transactionCategory) {
+    public void setTransactionCategory(final TransactionCategory transactionCategory) {
         this.transactionCategory = transactionCategory;
     }
 
@@ -77,15 +84,27 @@ public class LedgerEntry {
         this.receiptFile = receiptFile;
     }
 
-    public long getTransactionEpoch() {
-        return transactionEpoch;
+    public long getTransactionYear() {
+        return transactionYear;
     }
 
-    public void setTransactionEpoch(final long transactionEpoch) {
-        this.transactionEpoch = transactionEpoch;
+    public void setTransactionYear(final int transactionYear) {
+        this.transactionYear = transactionYear;
     }
 
-    public LocalDateTime getTransactionDateTime(final ZoneId timeZone) {
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(transactionEpoch), timeZone);
+    public long getTransactionMonth() {
+        return transactionMonth;
+    }
+
+    public void setTransactionMonth(final int transactionMonth) {
+        this.transactionMonth = transactionMonth;
+    }
+
+    public long getTransactionDay() {
+        return transactionDay;
+    }
+
+    public void setTransactionDay(final int transactionDay) {
+        this.transactionDay = transactionDay;
     }
 }

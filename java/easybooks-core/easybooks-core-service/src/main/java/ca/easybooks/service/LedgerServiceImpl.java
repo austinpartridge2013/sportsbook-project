@@ -30,7 +30,9 @@ public class LedgerServiceImpl implements LedgerService
         ledgerEntry.setTransactionAmount(ledgerInput.getTransactionAmount());
         ledgerEntry.setTransactionCategory(ledgerInput.getTransactionCategory());
         ledgerEntry.setTransactionDescription(ledgerInput.getTransactionDescription());
-        ledgerEntry.setTransactionEpoch(ledgerInput.getTransactionDate());
+        ledgerEntry.setTransactionYear(ledgerInput.getTransactionYear());
+        ledgerEntry.setTransactionYear(ledgerInput.getTransactionMonth());
+        ledgerEntry.setTransactionYear(ledgerInput.getTransactionDay());
         em.persist(ledgerEntry);
     }
 
