@@ -23,7 +23,7 @@ public class LedgerServiceImpl implements LedgerService
 
     public void uploadFile(final LedgerEntryInput ledgerInput)
     {
-        fileOperations.saveFile(ledgerInput);
+        fileOperations.saveFile(ledgerInput.getRelativeFilePath(), ledgerInput.getFileData());
 
         final LedgerEntry ledgerEntry = new LedgerEntry();
         ledgerEntry.setReceiptFile(ledgerInput.getFileName());

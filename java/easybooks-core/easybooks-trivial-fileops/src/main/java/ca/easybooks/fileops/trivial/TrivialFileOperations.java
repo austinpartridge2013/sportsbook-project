@@ -9,7 +9,6 @@ import javax.ejb.Stateless;
 
 import org.jboss.logging.Logger;
 
-import ca.easybooks.data.transferobject.LedgerEntryInput;
 import ca.easybooks.service.interfaces.FileOperations;
 
 @Stateless
@@ -18,9 +17,9 @@ public class TrivialFileOperations implements FileOperations {
 
     private static final String DEFAULT_FILE_PATH = "/tmp";
 
-    public void saveFile(final LedgerEntryInput ledgerInput) {
+    public void saveFile(final String relativePath, final byte[] fileContents) {
         try {
-            Files.write(Paths.get(DEFAULT_FILE_PATH, ledgerInput.getFileName()), ledgerInput.getFileData());
+            Files.write(Paths.get(DEFAULT_FILE_PATH, relativePath), fileContents);
         } catch (final IOException e) {
             log.error("Error storing file", e);
             throw new RuntimeException("Unable to store file", e);

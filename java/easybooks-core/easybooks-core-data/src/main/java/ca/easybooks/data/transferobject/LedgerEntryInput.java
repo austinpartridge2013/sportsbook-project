@@ -89,4 +89,11 @@ public class LedgerEntryInput {
     public void setTransactionDay(final int transactionDay) {
         this.transactionDay = transactionDay;
     }
+
+    public String getRelativeFilePath() {
+        return this.transactionYear + "/" +
+                this.transactionMonth + "/" +
+                this.transactionDay + "/" +
+                this.fileName;
+    }
 }

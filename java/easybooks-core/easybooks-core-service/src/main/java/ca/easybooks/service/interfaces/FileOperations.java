@@ -2,10 +2,8 @@ package ca.easybooks.service.interfaces;
 
 import java.io.File;
 
-import ca.easybooks.data.transferobject.LedgerEntryInput;
-
 public interface FileOperations {
 
-    void saveFile(LedgerEntryInput ledgerInput);
+    void saveFile(String relativePath, byte[] fileContents);
     File getFile(String fileName);
 }
