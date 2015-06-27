@@ -1,8 +1,8 @@
 package ca.easybooks.service;
 
-import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -48,7 +48,7 @@ public class LedgerServiceImpl implements LedgerService
         return em.createQuery("SELECT l FROM LedgerEntry l ORDER BY l.transactionDate", LedgerEntry.class).getResultList();
     }
 
-    public OutputStream getTransactionsInExcelFormat() {
+    public InputStream getTransactionsInExcelFormat() {
         final HSSFWorkbook workbook = new HSSFWorkbook();
         try {
             final HSSFSheet sheet = workbook.createSheet("Sample sheet");
@@ -58,7 +58,7 @@ public class LedgerServiceImpl implements LedgerService
             final Cell cell = row.createCell(0);
             //Set value to new value
             cell.setCellValue("Blahblah");
-            return getOutputStream(workbook);
+            return getInputStream(workbook);
         } finally {
             try {
                 workbook.close();
@@ -68,13 +68,7 @@ public class LedgerServiceImpl implements LedgerService
         }
     }
 
-    private OutputStream getOutputStream(final HSSFWorkbook workbook) {
-        final OutputStream outputStream = new ByteArrayOutputStream();
-        try {
-            outputStream.write(workbook.getBytes());
-        } catch (final IOException e) {
-            throw new RuntimeException("Couldn't write byte stream to output stream");
-        }
-        return outputStream;
+    private InputStream getInputStream(final HSSFWorkbook workbook) {
+        return new ByteArrayInputStream(workbook.getBytes());
     }
 }
