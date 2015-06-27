@@ -9,29 +9,20 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import ca.easybooks.data.transferobject.LedgerEntryInput;
-import ca.easybooks.service.interfaces.HelloWorldEjb;
 import ca.easybooks.service.interfaces.LedgerService;
 
 @Path("register")
 @RequestScoped
 public class LedgerResource
 {
-    @Inject
-    private HelloWorldEjb helloWorldEjb;
 
     @Inject
     private LedgerService ledgerService;
-
-    @GET
-    public Response getHelloWorld()
-    {
-        final String helloWorld = helloWorldEjb == null ? "Empty" : helloWorldEjb.getHelloWorld();
-        return Response.ok(helloWorld).build();
-    }
 
     @POST
     @Path("/upload-file")
@@ -47,6 +38,16 @@ public class LedgerResource
     public Response getTransactions() {
         return Response.ok(ledgerService.getTransactions()).build();
 
+    }
+
+    @GET
+    @Path("/excel")
+    @Produces("application/vnd.ms-excel")
+    public Response getFile() {
+        final ResponseBuilder response = Response.ok(ledgerService.getTransactionsInExcelFormat());
+        response.header("Content-Disposition",
+                "attachment; filename=new-excel-file.xls");
+        return response.build();
     }
 
 }

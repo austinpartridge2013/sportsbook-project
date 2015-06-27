@@ -21,6 +21,12 @@
 
   <dependencies>  
     <dependency>
+	  <groupId>org.apache.poi</groupId>
+	  <artifactId>poi</artifactId>
+	  <scope>compile</scope>
+    </dependency>
+  
+    <dependency>
       <groupId>ca.easybooks</groupId>
       <artifactId>easybooks-core-data</artifactId>
       <scope>compile</scope>

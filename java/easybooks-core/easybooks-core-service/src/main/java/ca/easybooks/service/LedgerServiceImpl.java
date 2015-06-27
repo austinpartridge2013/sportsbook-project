@@ -1,11 +1,17 @@
 package ca.easybooks.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 
 import ca.easybooks.data.entity.LedgerEntry;
 import ca.easybooks.data.transferobject.LedgerEntryInput;
@@ -38,5 +44,25 @@ public class LedgerServiceImpl implements LedgerService
 
     public List<LedgerEntry> getTransactions() {
         return em.createQuery("SELECT l FROM LedgerEntry l ORDER BY l.transactionDate", LedgerEntry.class).getResultList();
+    }
+
+    public byte[] getTransactionsInExcelFormat() {
+        final HSSFWorkbook workbook = new HSSFWorkbook();
+        try {
+            final HSSFSheet sheet = workbook.createSheet("Sample sheet");
+            //Create a new row in current sheet
+            final Row row = sheet.createRow(0);
+            //Create a new cell in current row
+            final Cell cell = row.createCell(0);
+            //Set value to new value
+            cell.setCellValue("Blahblah");
+            return workbook.getBytes();
+        } finally {
+            try {
+                workbook.close();
+            } catch (final IOException e) {
+                //Nothing we can do here
+            }
+        }
     }
 }
