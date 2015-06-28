@@ -27,7 +27,7 @@ import ca.easybooks.service.interfaces.LedgerService;
 public class LedgerServiceImpl implements LedgerService
 {
     private static final String EXCEL_FILE_LINK_TEMPLATE =
-            "=HYPERLINK(CONCATENATE(LEFT(CELL(\"filename\"),FIND(\"[\", CELL(\"filename\"))-1),\"%1$s\"), \"%2$s\")";
+            "HYPERLINK(CONCATENATE(LEFT(CELL(\"filename\"),FIND(\"[\", CELL(\"filename\"))-1),\"%1$s\"), \"%2$s\")";
     private static final String REVENUES_HEADING = "REVENUES";
     private static final String EXPENSES_HEADING = "EXPENSES";
 
