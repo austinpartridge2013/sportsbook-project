@@ -6,6 +6,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -41,10 +42,10 @@ public class LedgerResource
     }
 
     @GET
-    @Path("/excel")
+    @Path("/{year}/excel")
     @Produces("application/vnd.ms-excel")
-    public Response getFile() {
-        final ResponseBuilder response = Response.ok(ledgerService.getTransactionsInExcelFormat());
+    public Response getFile(@PathParam("year") final int year) {
+        final ResponseBuilder response = Response.ok(ledgerService.getTransactionsInExcelFormat(year));
         response.header("Content-Disposition",
                 "attachment; filename=new-excel-file.xls");
         return response.build();

@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -14,6 +15,8 @@ import ca.easybooks.data.enums.TransactionCategory;
 
 @Entity
 @Table(name = "ledger_entry")
+@NamedQuery(name = "LedgerEntry.getTransactionsForGivenYear",
+query = "SELECT l FROM LedgerEntry l WHERE l.transactionYear = :transactionYear")
 public class LedgerEntry {
 
     @Id

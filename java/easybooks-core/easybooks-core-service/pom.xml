@@ -51,7 +51,6 @@
 	  <artifactId>poi</artifactId>
 	  <scope>provided</scope>
     </dependency>
-    
 
     <dependency>
       <groupId>ca.easybooks</groupId>

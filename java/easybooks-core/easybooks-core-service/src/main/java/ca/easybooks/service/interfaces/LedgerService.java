@@ -9,5 +9,5 @@ import ca.easybooks.data.transferobject.LedgerEntryInput;
 public interface LedgerService {
     void uploadFile(LedgerEntryInput registrationAttempt);
     List<LedgerEntry> getTransactions();
-    File getTransactionsInExcelFormat();
+    File getTransactionsInExcelFormat(int year);
 }
