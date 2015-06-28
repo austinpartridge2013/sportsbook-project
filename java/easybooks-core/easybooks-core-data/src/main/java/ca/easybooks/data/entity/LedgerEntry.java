@@ -111,7 +111,7 @@ public class LedgerEntry {
         this.transactionDay = transactionDay;
     }
 
-    public String getFilePath() {
+    public String getReceiptFilePath() {
         return this.transactionYear + "/" +
                 this.transactionMonth + "/" +
                 this.transactionDay + "/";

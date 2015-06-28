@@ -103,13 +103,13 @@ public class LedgerServiceImpl implements LedgerService
         revenueValueCell.setCellValue(ledgerEntry.getTransactionAmount());
 
         final Cell fileLinkCell = row.createCell(column + 2);
-        fileLinkCell.setCellValue(getExcelFormulaToLinkFile(ledgerEntry));
+        fileLinkCell.setCellFormula(getExcelFormulaToLinkFile(ledgerEntry));
     }
 
     private String getExcelFormulaToLinkFile(final LedgerEntry ledgerEntry) {
         final StringBuilder stringBuilder = new StringBuilder();
         try (final Formatter formatter = new Formatter(stringBuilder)) {
-            formatter.format(EXCEL_FILE_LINK_TEMPLATE, ledgerEntry.getFilePath(), ledgerEntry.getReceiptFile());
+            formatter.format(EXCEL_FILE_LINK_TEMPLATE, ledgerEntry.getReceiptFilePath() + ledgerEntry.getReceiptFile(), ledgerEntry.getReceiptFile());
             return stringBuilder.toString();
         }
     }
