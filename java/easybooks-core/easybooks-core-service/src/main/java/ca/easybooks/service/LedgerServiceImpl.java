@@ -3,6 +3,7 @@ package ca.easybooks.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Formatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,16 +26,14 @@ import ca.easybooks.service.interfaces.LedgerService;
 @Stateless
 public class LedgerServiceImpl implements LedgerService
 {
+    private static final String EXCEL_FILE_LINK_TEMPLATE =
+            "=HYPERLINK(CONCATENATE(LEFT(CELL(\"filename\"),FIND(\"[\", CELL(\"filename\"))-1),\"%1$s\"), \"%2$s\")";
     private static final String REVENUES_HEADING = "REVENUES";
-    private static final int HEADING_ROW = 0;
-    private static final int REVENUE_COLUMN = 0;
-    private static final int EXPENSE_COLUMN = 3;
-
-    private static final int DATA_START_ROW = 0;
-
     private static final String EXPENSES_HEADING = "EXPENSES";
 
-    private static final int EXPENSE_ROW_START = 0;
+    private static final int HEADING_ROW = 0;
+    private static final int REVENUE_COLUMN = 0;
+    private static final int EXPENSE_COLUMN = 4;
 
     @PersistenceContext
     private EntityManager em;
@@ -88,19 +87,30 @@ public class LedgerServiceImpl implements LedgerService
         for (int i = 0; i < Math.max(revenues.size(), expenses.size()); i++) {
             final Row currentRow = sheet.createRow(HEADING_ROW + 1 + i);
             if (i < revenues.size()) {
-                final Cell revenueDescriptionCell = currentRow.createCell(REVENUE_COLUMN);
-                revenueDescriptionCell.setCellValue(revenues.get(i).getTransactionDescription());
-
-                final Cell revenueValueCell = currentRow.createCell(REVENUE_COLUMN + 1);
-                revenueValueCell.setCellValue(revenues.get(i).getTransactionAmount());
+                addTransactionDetails(currentRow, REVENUE_COLUMN, revenues.get(i));
             }
             if (i < expenses.size()) {
-                final Cell expenseDescriptionCell = currentRow.createCell(EXPENSE_COLUMN);
-                expenseDescriptionCell.setCellValue(expenses.get(i).getTransactionDescription());
-
-                final Cell expenseValueCell = currentRow.createCell(EXPENSE_COLUMN + 1);
-                expenseValueCell.setCellValue(expenses.get(i).getTransactionAmount());
+                addTransactionDetails(currentRow, EXPENSE_COLUMN, expenses.get(i));
             }
+        }
+    }
+
+    private void addTransactionDetails(final Row row, final int column, final LedgerEntry ledgerEntry) {
+        final Cell revenueDescriptionCell = row.createCell(column);
+        revenueDescriptionCell.setCellValue(ledgerEntry.getTransactionDescription());
+
+        final Cell revenueValueCell = row.createCell(column + 1);
+        revenueValueCell.setCellValue(ledgerEntry.getTransactionAmount());
+
+        final Cell fileLinkCell = row.createCell(column + 2);
+        fileLinkCell.setCellValue(getExcelFormulaToLinkFile(ledgerEntry));
+    }
+
+    private String getExcelFormulaToLinkFile(final LedgerEntry ledgerEntry) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        try (final Formatter formatter = new Formatter(stringBuilder)) {
+            formatter.format(EXCEL_FILE_LINK_TEMPLATE, ledgerEntry.getFilePath(), ledgerEntry.getReceiptFile());
+            return stringBuilder.toString();
         }
     }
 
