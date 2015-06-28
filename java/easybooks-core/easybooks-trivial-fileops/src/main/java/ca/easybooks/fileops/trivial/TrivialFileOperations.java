@@ -21,7 +21,7 @@ public class TrivialFileOperations implements FileOperations {
     public void saveFile(final String relativePath, final byte[] fileContents) {
         try {
             final Path filePath = Paths.get(DEFAULT_FILE_PATH, relativePath);
-            Files.createDirectories(filePath);
+            Files.createDirectories(filePath.getParent());
             Files.write(filePath, fileContents);
         } catch (final IOException e) {
             log.error("Error storing file", e);
