@@ -3,6 +3,7 @@ package ca.easybooks.fileops.trivial;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.ejb.Stateless;
@@ -19,7 +20,9 @@ public class TrivialFileOperations implements FileOperations {
 
     public void saveFile(final String relativePath, final byte[] fileContents) {
         try {
-            Files.write(Paths.get(DEFAULT_FILE_PATH, relativePath), fileContents);
+            final Path filePath = Paths.get(DEFAULT_FILE_PATH, relativePath);
+            Files.createDirectories(filePath);
+            Files.write(filePath, fileContents);
         } catch (final IOException e) {
             log.error("Error storing file", e);
             throw new RuntimeException("Unable to store file", e);
