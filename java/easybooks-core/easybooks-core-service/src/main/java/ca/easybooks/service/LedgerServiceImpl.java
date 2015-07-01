@@ -114,6 +114,7 @@ public class LedgerServiceImpl implements LedgerService
 
         final Cell fileLinkCell = row.createCell(column + 2);
         fileLinkCell.setCellFormula(getExcelFormulaToLinkFile(ledgerEntry));
+        fileLinkCell.setCellValue(ledgerEntry.getReceiptFile());
     }
 
     private String getExcelFormulaToLinkFile(final LedgerEntry ledgerEntry) {
