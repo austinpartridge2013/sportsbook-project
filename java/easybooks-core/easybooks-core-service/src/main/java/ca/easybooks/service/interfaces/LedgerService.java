@@ -10,4 +10,5 @@ public interface LedgerService {
     void uploadFile(LedgerEntryInput registrationAttempt);
     List<LedgerEntry> getTransactions();
     File getTransactionsInExcelFormat(int year);
+    File getTransactionsIncludingDocumentation(int year);
 }

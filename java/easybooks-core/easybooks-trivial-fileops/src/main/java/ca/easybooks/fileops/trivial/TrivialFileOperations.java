@@ -19,8 +19,8 @@ public class TrivialFileOperations implements FileOperations {
     private static final String DEFAULT_FILE_PATH = "/tmp";
 
     public void saveFile(final String relativePath, final byte[] fileContents) {
+        final Path filePath = Paths.get(DEFAULT_FILE_PATH, relativePath);
         try {
-            final Path filePath = Paths.get(DEFAULT_FILE_PATH, relativePath);
             Files.createDirectories(filePath.getParent());
             Files.write(filePath, fileContents);
         } catch (final IOException e) {

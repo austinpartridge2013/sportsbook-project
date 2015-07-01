@@ -44,11 +44,20 @@ public class LedgerResource
     @GET
     @Path("/{year}/excel")
     @Produces("application/vnd.ms-excel")
-    public Response getFile(@PathParam("year") final int year) {
+    public Response getExcelFile(@PathParam("year") final int year) {
         final ResponseBuilder response = Response.ok(ledgerService.getTransactionsInExcelFormat(year));
         response.header("Content-Disposition",
                 "attachment; filename=new-excel-file.xls");
         return response.build();
     }
 
+    @GET
+    @Path("/{year}/zip")
+    @Produces("application/zip")
+    public Response getZipFile(@PathParam("year") final int year) {
+        final ResponseBuilder response = Response.ok(ledgerService.getTransactionsIncludingDocumentation(year));
+        response.header("Content-Disposition",
+                "attachment; filename=new-zip-file.zip");
+        return response.build();
+    }
 }

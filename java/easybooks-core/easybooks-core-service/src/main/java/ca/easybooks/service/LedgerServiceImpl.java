@@ -63,6 +63,16 @@ public class LedgerServiceImpl implements LedgerService
     }
 
     @Override
+    public File getTransactionsIncludingDocumentation(final int year) {
+        final File excelFile = getTransactionsInExcelFormat(year);
+
+        try (final ZipFileService zipFileService = new ZipFileService("tmp.zip")) {
+            zipFileService.addFile(excelFile, "excel.xls");
+            return zipFileService.getZipFile();
+        }
+    }
+
+    @Override
     public File getTransactionsInExcelFormat(final int year) {
         try (final HSSFWorkbook excelWorkbook = generateExcelFile(year)) {
             return getExcelFile(excelWorkbook);
