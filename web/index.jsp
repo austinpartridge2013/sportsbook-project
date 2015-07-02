@@ -1,7 +1,7 @@
 <html>
     <body>
         <h1>Easybooks!</h1>
-	<form action="http://192.168.1.147:8080/easybooks-core-web/register/upload-file" method="post" enctype="multipart/form-data">
+	<form action="http://192.168.1.147:8080/easybooks-core-web/ledgerentry" method="post" enctype="multipart/form-data">
             <p>
                 File name : <input id="fileName" type="text" name="fileName" />
             </p>
@@ -28,5 +28,12 @@
             </p>
 	    <input type="submit" value="Upload" />
 	</form>
+	<a href="http://192.168.1.147:8080/easybooks-core-web/ledgerentry">GET ALL LEDGER ENTRIES</a>
+	<br />
+	<a href="http://192.168.1.147:8080/easybooks-core-web/ledgerentry/2015">GET ALL LEDGER ENTRIES FOR 2015</a>
+	<br/>
+	<a href="http://192.168.1.147:8080/easybooks-core-web/data/incomestatement">GET INCOME STATEMENT FOR ALL ENTRIES</a>
+	<br/>
+	<a href="http://192.168.1.147:8080/easybooks-core-web/data/zip">GET ZIP FILE FOR ALL ENTRIES</a>
     </body>
 </html>
