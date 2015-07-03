@@ -14,6 +14,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import ca.easybooks.data.entity.LedgerEntry;
 import ca.easybooks.data.enums.TransactionCategory;
@@ -127,12 +128,12 @@ public class DataPresentationServiceImpl implements DataPresentationService {
         expenseHeadingCell.setCellValue(EXPENSES_HEADING);
     }
 
-    private File getExcelFile(final HSSFWorkbook workbook) {
+    private File getExcelFile(final Workbook workbook) {
         try {
-            final FileOutputStream out = new FileOutputStream("/tmp/tempExcelFile.xls");
+            final FileOutputStream out = new FileOutputStream("/tmp/tempExcelFile.xlsx");
             workbook.write(out);
             out.close();
-            return new File("/tmp/tempExcelFile.xls");
+            return new File("/tmp/tempExcelFile.xlsx");
         } catch (final IOException e) {
             throw new RuntimeException("Issue writing to excel file", e);
         }
@@ -152,7 +153,7 @@ public class DataPresentationServiceImpl implements DataPresentationService {
 
     private File getZipFileForCollectedData(final File excelFile) {
         try (final ZipFileService zipFileService = new ZipFileService("tmp.zip")) {
-            zipFileService.addFile(excelFile, "excel.xls");
+            zipFileService.addFile(excelFile, "excel.xlsx");
             return zipFileService.getZipFile();
         }
     }

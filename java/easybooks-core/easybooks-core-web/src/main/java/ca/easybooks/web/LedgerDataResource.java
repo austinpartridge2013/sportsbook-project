@@ -24,7 +24,7 @@ public class LedgerDataResource
     public Response getIncomeStatement() {
         final ResponseBuilder response = Response.ok(dataPresentationService.getAllTransactionsInExcelFormat());
         response.header("Content-Disposition",
-                "attachment; filename=alltime_income_statement.xls");
+                "attachment; filename=alltime_income_statement.xlsx");
         return response.build();
     }
 
@@ -34,7 +34,7 @@ public class LedgerDataResource
     public Response getIncomeStatement(@PathParam("year") final int year) {
         final ResponseBuilder response = Response.ok(dataPresentationService.getTransactionsInExcelFormat(year));
         response.header("Content-Disposition",
-                "attachment; filename=" + year + "_income_statement.xls");
+                "attachment; filename=" + year + "_income_statement.xlsx");
         return response.build();
     }
 
