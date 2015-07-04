@@ -11,6 +11,7 @@
 
          $.ajax({
              type: "POST",
+             url: "http://192.168.1.147",
              data: dat,
              success: function(){},
              dataType: "json",
@@ -61,7 +62,6 @@
             <input name="firstName" value="harry" />
             <input name="lastName" value="tester" />
             <input name="toEmail" value="testtest@test.com" />
-            <input type="submit" value="Upload" />
         </form>
     </body>
 </html>
