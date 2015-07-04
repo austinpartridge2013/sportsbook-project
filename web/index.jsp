@@ -1,7 +1,7 @@
 <head>
    <title>Test</title>
    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-   <script type="text/javascript" src="http://www.json.org/json2.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json2/20150503/json2.js"></script>
    <script type="text/javascript">
       $('#myform').submit(function() {
          var frm = $(this);
