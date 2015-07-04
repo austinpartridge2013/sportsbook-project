@@ -58,10 +58,11 @@
 	    <br/>
 	    <a href="http://192.168.1.147:8080/easybooks-core-web/data/zip">GET ZIP FILE FOR ALL ENTRIES</a>
 	    <br />
-	    <form id="myform">
+	    <form id="myform" action="javascript:document.myform.submit()">
             <input name="firstName" value="harry" />
             <input name="lastName" value="tester" />
             <input name="toEmail" value="testtest@test.com" />
+            <input type="submit" value="Submit" />
         </form>
     </body>
 </html>
