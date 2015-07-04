@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import ca.easybooks.data.entity.LedgerEntry;
 import ca.easybooks.data.enums.TransactionCategory;
@@ -79,15 +79,15 @@ public class DataPresentationServiceImpl implements DataPresentationService {
         return getZipFileForCollectedData(excelFile);
     }
 
-    private HSSFWorkbook generateExcelFile() throws IOException {
-        final HSSFWorkbook workbook = new HSSFWorkbook();
-        final HSSFSheet sheet = workbook.createSheet("IncomeStatement");
+    private Workbook generateExcelFile() throws IOException {
+        final Workbook workbook = new XSSFWorkbook();
+        final Sheet sheet = workbook.createSheet("IncomeStatement");
         addHeadings(sheet);
         addData(sheet);
         return workbook;
     }
 
-    private void addData(final HSSFSheet sheet) {
+    private void addData(final Sheet sheet) {
         for (int i = 0; i < Math.max(revenues.size(), expenses.size()); i++) {
             final Row currentRow = sheet.createRow(HEADING_ROW + 1 + i);
             if (i < revenues.size()) {
@@ -119,7 +119,7 @@ public class DataPresentationServiceImpl implements DataPresentationService {
         }
     }
 
-    private void addHeadings(final HSSFSheet sheet) {
+    private void addHeadings(final Sheet sheet) {
         final Row headingRow = sheet.createRow(HEADING_ROW);
         final Cell revenueHeadingCell = headingRow.createCell(REVENUE_COLUMN);
         revenueHeadingCell.setCellValue(REVENUES_HEADING);
@@ -144,7 +144,7 @@ public class DataPresentationServiceImpl implements DataPresentationService {
     }
 
     private File getExcelFileForCollectedDate() {
-        try (final HSSFWorkbook excelWorkbook = generateExcelFile()) {
+        try (final Workbook excelWorkbook = generateExcelFile()) {
             return getExcelFile(excelWorkbook);
         } catch (final IOException e) {
             throw new RuntimeException("Error creating excel file", e);
