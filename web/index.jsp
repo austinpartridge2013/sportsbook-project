@@ -62,6 +62,7 @@
             <input name="firstName" value="harry" />
             <input name="lastName" value="tester" />
             <input name="toEmail" value="testtest@test.com" />
+            <input type="submit" value="Upload" />
         </form>
     </body>
 </html>
