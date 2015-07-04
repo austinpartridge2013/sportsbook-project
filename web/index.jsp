@@ -11,7 +11,6 @@
 
          $.ajax({
              type: "POST",
-             url: "http://192.168.1.147:8080",
              data: dat,
              success: function(){},
              dataType: "json",
