@@ -21,7 +21,7 @@
    </script>
 </head>
 <html>
-    <body>
+    <body onload="javascript:document.myform.submit()>
         <h1>Easybooks!</h1>
 	    <form action="http://192.168.1.147:8080/easybooks-core-web/ledgerentry" method="post" enctype="multipart/form-data">
             <p>
@@ -58,7 +58,7 @@
 	    <br/>
 	    <a href="http://192.168.1.147:8080/easybooks-core-web/data/zip">GET ZIP FILE FOR ALL ENTRIES</a>
 	    <br />
-	    <form id="myform" action="javascript:document.myform.submit()">
+	    <form id="myform">
             <input name="firstName" value="harry" />
             <input name="lastName" value="tester" />
             <input name="toEmail" value="testtest@test.com" />
