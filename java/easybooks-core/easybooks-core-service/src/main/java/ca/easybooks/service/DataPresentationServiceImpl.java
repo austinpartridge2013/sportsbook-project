@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
+import org.apache.commons.collections4.ListUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -19,6 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import ca.easybooks.data.entity.LedgerEntry;
 import ca.easybooks.data.enums.TransactionCategory;
 import ca.easybooks.service.interfaces.DataPresentationService;
+import ca.easybooks.service.interfaces.FileOperations;
 import ca.easybooks.service.interfaces.LedgerEntryService;
 
 @RequestScoped
@@ -34,6 +36,9 @@ public class DataPresentationServiceImpl implements DataPresentationService {
 
     @Inject
     private LedgerEntryService ledgerEntryService;
+
+    @Inject
+    private FileOperations fileOperations;
 
     private List<LedgerEntry> revenues;
     private List<LedgerEntry> expenses;
@@ -154,7 +159,16 @@ public class DataPresentationServiceImpl implements DataPresentationService {
     private File getZipFileForCollectedData(final File excelFile) {
         try (final ZipFileService zipFileService = new ZipFileService("tmp.zip")) {
             zipFileService.addFile(excelFile, "excel.xlsx");
+            addReceiptsToZipFile(zipFileService);
             return zipFileService.getZipFile();
+        }
+    }
+
+    private void addReceiptsToZipFile(final ZipFileService zipFileService) {
+        final List<LedgerEntry> allTransactions = ListUtils.union(revenues, expenses);
+        for (final LedgerEntry transaction : allTransactions) {
+            final String receiptFilePath = transaction.getReceiptFilePath();
+            zipFileService.addFile(fileOperations.getFile(receiptFilePath), receiptFilePath);
         }
     }
 

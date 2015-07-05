@@ -25,6 +25,11 @@
 	  <artifactId>poi-ooxml</artifactId>
 	  <scope>compile</scope>
     </dependency>
+    <dependency>
+	  <groupId>org.apache.commons</groupId>
+	  <artifactId>commons-collections4</artifactId>
+	  <scope>compile</scope>
+    </dependency>
   
     <dependency>
       <groupId>ca.easybooks</groupId>
