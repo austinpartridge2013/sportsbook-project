@@ -29,7 +29,8 @@ public class TrivialFileOperations implements FileOperations {
         }
     }
 
-    public File getFile(final String fileName) {
-        return new File(DEFAULT_FILE_PATH + fileName);
+    public File getFile(final String relativePath) {
+        final Path filePath = Paths.get(DEFAULT_FILE_PATH, relativePath);
+        return filePath.toFile();
     }
 }

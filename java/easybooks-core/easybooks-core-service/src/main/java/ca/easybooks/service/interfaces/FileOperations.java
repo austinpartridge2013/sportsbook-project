@@ -5,5 +5,5 @@ import java.io.File;
 public interface FileOperations {
 
     void saveFile(String relativePath, byte[] fileContents);
-    File getFile(String fileName);
+    File getFile(String relativePath);
 }
