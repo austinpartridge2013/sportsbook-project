@@ -26,6 +26,7 @@ public class LedgerEntryResource
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response createLedgerEntry(@MultipartForm final LedgerEntryInput ledgerEntryInput) {
         final LedgerEntry ledgerEntry = ledgerEntryService.createLedgerEntry(ledgerEntryInput);
         return Response.ok(ledgerEntry).build();
