@@ -20,7 +20,7 @@ public class LedgerDataResource
 
     @GET
     @Path("/incomestatement")
-    @Produces("application/vnd.ms-excel")
+    @Produces("application/xlsx")
     public Response getIncomeStatement() {
         final ResponseBuilder response = Response.ok(dataPresentationService.getAllTransactionsInExcelFormat());
         response.header("Content-Disposition",
