@@ -21,7 +21,7 @@
    </script>
 </head>
 <html>
-    <body onload="javascript:document.myform.submit()>
+    <body>
         <h1>Easybooks!</h1>
 	    <form action="http://192.168.1.147:8080/easybooks-core-web/ledgerentry" method="post" enctype="multipart/form-data">
             <p>
@@ -50,6 +50,7 @@
             </p>
 	        <input type="submit" value="Upload" />
 	    </form>
+            <br />
 	    <a href="http://192.168.1.147:8080/easybooks-core-web/ledgerentry">GET ALL LEDGER ENTRIES</a>
 	    <br />
 	    <a href="http://192.168.1.147:8080/easybooks-core-web/ledgerentry/2015">GET ALL LEDGER ENTRIES FOR 2015</a>
