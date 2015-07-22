@@ -119,7 +119,7 @@ public class DataPresentationServiceImpl implements DataPresentationService {
     private String getExcelFormulaToLinkFile(final LedgerEntry ledgerEntry) {
         final StringBuilder stringBuilder = new StringBuilder();
         try (final Formatter formatter = new Formatter(stringBuilder)) {
-            formatter.format(EXCEL_FILE_LINK_TEMPLATE, ledgerEntry.getReceiptFilePath() + ledgerEntry.getReceiptFile(), ledgerEntry.getReceiptFile());
+            formatter.format(EXCEL_FILE_LINK_TEMPLATE, ledgerEntry.getReceiptFilePath(), ledgerEntry.getReceiptFile());
             return stringBuilder.toString();
         }
     }
@@ -158,7 +158,7 @@ public class DataPresentationServiceImpl implements DataPresentationService {
 
     private File getZipFileForCollectedData(final File excelFile) {
         try (final ZipFileService zipFileService = new ZipFileService("tmp.zip")) {
-            zipFileService.addFile(excelFile, "excel.xlsx");
+            zipFileService.addFile(excelFile, "incomeStatement.xlsx");
             addReceiptsToZipFile(zipFileService);
             return zipFileService.getZipFile();
         }
